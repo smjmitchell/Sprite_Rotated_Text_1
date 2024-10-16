@@ -1,5 +1,5 @@
 // This example plots a rotated Sprite to the screen using the pushRotated()
-// function. It is written for a 240 x 240 TFT screen.
+// function. It is written for a 240 x 320 TFT screen.
 
 // Two rotation pivot points must be set, one for the Sprite and one for the TFT
 // using setPivot(). These pivot points do not need to be within the visible screen
@@ -39,6 +39,10 @@ void setup()   {
 
   tft.begin();  // initialize
   tft.setRotation(0);
+
+  Serial.println("Font Height and Width");
+  Serial.println(tft.fontHeight(4));
+  Serial.println(tft.textWidth(4));  
 }
 
 // =======================================================================================
@@ -56,7 +60,7 @@ void loop() {
   tft.setPivot(xw, yh);         // Set pivot to middle of screen
   drawX(xw, yh);                // Show where pivot is
   
-  spr.deleteSprite();
+  //spr.deleteSprite();
 
   spr.setColorDepth(8);         // Create a 8bpp Sprite
   spr.createSprite(40, 30);     // Create a new Sprite 40x30
